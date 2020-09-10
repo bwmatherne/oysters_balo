@@ -1,0 +1,17 @@
+#!/bin/bash
+#PBS -q workq
+#PBS -l nodes=1:ppn=16
+#PBS -l walltime=24:00:00
+#PBS -A hpc_houmicro03
+cd /work/bmath27
+# Make sure to load required modules
+module load blast+/2.7.1/INTEL-18.0.0
+module load perl/5.24.0/INTEL-18.0.0 
+
+
+# Specify the database name here:
+export DATABASE=nr
+
+mkdir $DATABASE
+cd $DATABASE
+perl /usr/local/packages/blast+/2.7.1/INTEL-18.0.0/bin/update_blastdb.pl update_blastdb.pl --decompress --verbose $DATABASE
