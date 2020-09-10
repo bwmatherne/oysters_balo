@@ -3,17 +3,18 @@
 #PBS -A hpc_houmicro03
 #PBS -l nodes=1:ppn=16
 #PBS -l walltime=0:01:00
-#PBS -o /home/bmath27/oysters_balo/data/process
+#PBS -o data/process
 #PBS -j oe
 #PBS -N BMmuscle
 date
 
-cd /home/bmath27/oysters_balo/data/references
-
-module load muscle/3.8.31/INTEL-18.0.0
+cd ~/oysters_balo/data/process/
 
 
+ulimit -s unlimited
+module load python/3.6.4-anaconda
+source activate muscle-3.8.1551
 muscle -in balo_seq.fa -out muscle_balo.afa
+source deactivate
 date
 exit 0
-

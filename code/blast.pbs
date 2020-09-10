@@ -1,0 +1,18 @@
+#!/bin/bash
+#PBS -q checkpt
+#PBS -A hpc_houmicro03
+#PBS -l nodes=1:ppn=16
+#PBS -l walltime=1:00:00
+#PBS -o /home/bmath27/msa/
+#PBS -j oe
+#PBS -N pbs_blastdb
+date
+
+module load blast+/2.7.1/INTEL-18.0.0
+
+cd /home/bmath27/msa/
+
+blastn -db nt -query seqs.fa -out results.out -remote
+
+date
+exit 0
