@@ -15,3 +15,6 @@ export DATABASE=nr
 mkdir $DATABASE
 cd $DATABASE
 perl /usr/local/packages/blast+/2.7.1/INTEL-18.0.0/bin/update_blastdb.pl update_blastdb.pl --decompress --verbose $DATABASE
+
+date
+exit 0
